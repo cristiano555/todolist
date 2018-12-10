@@ -8,6 +8,5 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 
 
-//this is a testing comment
 
 serviceWorker.unregister();
