@@ -17,7 +17,10 @@ margin-top: 14px;
 const Header = styled.h1`
 color: #fff;
 `
-
+const DestroyButton = styled.button`
+background: orange;
+margin: 10px 0;
+`
 
 class ToDoList extends Component {
   static defaultProps = {
@@ -50,6 +53,7 @@ class ToDoList extends Component {
     return (
       <Container>
         <Header>{title}</Header>
+        <DestroyButton>Remove all</DestroyButton>
         {tasks.map(task => <ToDoItem text={task.text} done={task.done} />)}
         <NewTodoForm
           onSubmit={this.addToDo}
