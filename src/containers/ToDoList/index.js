@@ -18,8 +18,12 @@ const Header = styled.h1`
 color: #fff;
 `
 const DestroyButton = styled.button`
-background: orange;
+background: red;
 margin: 10px 0;
+padding: 10px;
+color: #fff;
+border-radius: 5px;
+border: 1px solid red;
 `
 
 class ToDoList extends Component {
@@ -47,13 +51,19 @@ class ToDoList extends Component {
     this.setState({tasks: list, draft: ''})
   }
 
+removeAll = () => {
+
+  this.setState({tasks: []})
+}
+
+
   render() {
     const { title } = this.props
     const {tasks, draft} = this.state
     return (
       <Container>
         <Header>{title}</Header>
-        <DestroyButton>Remove all</DestroyButton>
+        <DestroyButton onClick={this.removeAll}>Remove all</DestroyButton>
         {tasks.map(task => <ToDoItem text={task.text} done={task.done} />)}
         <NewTodoForm
           onSubmit={this.addToDo}
